@@ -1,13 +1,13 @@
 function FormAddFriend() {
   return (
     <form className="form-add-friend">
-      <label htmlFor=""> Nama</label>
+      <label htmlFor="">👤Nama</label>
       <input type="text" />
 
-      <label htmlFor=""> Gambar</label>
+      <label htmlFor="">📸Gambar</label>
       <input type="text" />
 
-      <button>Tambah</button>
+      <button className="button">Tambah</button>
     </form>
   );
 }
