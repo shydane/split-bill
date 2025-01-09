@@ -13,30 +13,35 @@ const initialFriends = [
   {
     id: 223344,
     name: "Miyabi",
-    image: "../public/images/miyabi.jpg",
+    image: "../public/images/hutao3.jpg",
     balance: 20,
   },
   {
     id: 334455,
     name: "Yanti",
-    image: "../public/images/yanti.png",
+    image: "../public/images/hutao.jpg",
     balance: 0,
   },
 ];
 
 function App() {
+  const [friends, setFriends] = useState(initialFriends);
   const [showAddFriend, setShowAddFriend] = useState(false);
 
   function handleShowAddFriend() {
     setShowAddFriend(!showAddFriend);
   }
 
+  function handleAddFriends(friend) {
+    setFriends((friends) => [...friends, friend]);
+  }
+
   return (
     <>
       <div className="app">
         <div className="sidebar">
-          <FriendList friends={initialFriends} />
-          {showAddFriend && <FormAddFriend />}
+          <FriendList friends={friends} />
+          {showAddFriend && <FormAddFriend onAddFriend={handleAddFriends} />}
           <button className="button" onClick={handleShowAddFriend}>
             {showAddFriend ? "Tutup" : "Tambah Teman"}
           </button>
